@@ -16,10 +16,48 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
+    <!-- <div class="d-flex p-3 bg-primary">
+        <div class="p-2 mr-auto">
+            <i class="fas fa-smile primary"></i>
+            Mon Sat- 8h00 - satur 20h00 CLOSED
+        </div>
+        <div class="p-2">
+            <i class="fas fa-phone"></i>
+            Mon Tel No. 0324828979
+        </div>
+      </div> -->
+    <nav class="navbar navbar-expand-sm bg-dark text-white navbar-black " >
+        <!-- Brand -->
+        <div class="d-flex">
+          <div class="col-md"></div>
+          <div class="col-md">
+            <a class="navbar-brand"  href="#" style="margin-right: 0px;">
+                <img src="logo.jfif" alt="logo" style="width: 150px;">
+            </a>
+          </div>
+          <div class="col-md">
+            <ul class="navbar-nav" style=" margin-left: 250%;">
+                <li class="nav-item">
+                  <a class="nav-link" href="#">ACCEUIL</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">PROPOS</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">SERVICE</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">ACCEUIL</a>
+                  </li>
+              </ul>
+          </div>
+        </div>
+      </nav>
 
-    <div class="">
+
+    <div class=" ">
         <!-- Sign up form -->
-        <section class="signup">
+        <section class="signup" style="margin-top:50px;">
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-form">
@@ -189,7 +227,7 @@
 
                                 <div>
                                     <h2 class="form-title">S'inscrire</h2>
-                                    <form method="POST" class="register-form" id="register-form" action="/r_register">
+                                    <form method="POST" class="register-form" style="margin-bottom: 50%;" id="register-form" action="/r_register">
                                         <div class="form-group">
                                             <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                             <input type="text" name="name" id="name" placeholder="Nom" required />
@@ -228,8 +266,8 @@
                                         <span class="form-group" id="r_notif">
 
                                         </span>
-                                        <div class="form-group form-button">
-                                            <input type="submit" name="signup" id="r_signup" class="form-submit" value="Enregistrer" required/>
+                                        <div class="form-group form-button"  >
+                                            <input type="submit" name="signup" id="r_signup" class="form-submit"  value="Enregistrer" required/>
                                         </div>
 
                                     </form>
@@ -250,6 +288,20 @@
         </div>
     </div>
     </div>
+
+    <footer>
+
+     <div class="container p-3 my-3 bg-white text-dark">
+            
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste doloremque, expedita tempore atque consequuntur ab ad laudantium repellat ducimus tempora placeat. Mollitia nesciunt nostrum eius explicabo esse nemo autem sequi.lorem
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas voluptatem harum, id adipisci nam iure fuga doloremque? Illum quisquam omnis exercitationem dolorem rem accusamus, quidem quod qui, deleniti, explicabo hic?. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda voluptas unde, rem sapiente velit quasi facilis sit quod harum iure eius. Reiciendis labore accusamus quaerat optio consectetur, totam non architecto?. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus sit reiciendis et ipsa nulla distinctio atque numquam, labore ex est, expedita sint esse, animi obcaecati! Amet earum laudantium at temporibus.
+            
+    </div>
+        
+        <div>
+
+        </div>
+    </footer>
 
     <!-- JS -->
     <script src="jquery/jquery.min.js"></script>
