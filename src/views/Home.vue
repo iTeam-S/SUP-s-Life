@@ -14,11 +14,12 @@ import Sign from '@/components/sign.vue'
 import Footer from '@/components/footer.vue'
 
 
+
 export default {
 	name: 'Home',
 
 	components: {
-		Sign, 
+		Sign,
 		Footer,
 		Navbar
 	},

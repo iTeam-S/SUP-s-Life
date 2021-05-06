@@ -591,8 +591,8 @@ body {
   width: 50%;
   overflow: hidden; }
 
-.signup-image {
-  margin: 0 55px; }
+  .signup-image {
+    margin: 0 55px; }
 
 .form-title {
   margin-bottom: 33px; }
