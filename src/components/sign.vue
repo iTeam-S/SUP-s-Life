@@ -9,20 +9,20 @@
                     <form method="POST" class="register-form" id="register-form" action="/register">
                         <div class="form-group">
                             <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="name" id="name" placeholder="Nom" required />
+                            <input type="text" name="name" id="name" placeholder="Nom" required v-model="s_nom"/>
                         </div>
                         <div class="form-group">
                             <label for="fname"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="fname" id="fname" placeholder="Prénom" required/>
+                            <input type="text" name="fname" id="fname" placeholder="Prénom" required v-model="s_prenom"/>
                         </div>
                         <div class="form-group">
                             <label for="aname"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="aname" id="aname" placeholder="Appelation" required/>
+                            <input type="text" name="aname" id="aname" placeholder="Appelation" required v-model="s_appelation"/>
                         </div>
 
                         <div class="form-group">
                             <label for="email"><i class="zmdi zmdi-email"></i></label>
-                            <input type="email" name="email" id="email" placeholder="Email" required/>
+                            <input type="email" name="email" id="email" placeholder="Email" required v-model="s_email_inscr"/>
                         </div>
 
                         <span class="form-group" id="notif_email">
@@ -33,13 +33,13 @@
                             <label for="promotion"><i class="zmdi zmdi-calendar"></i></label>
                             <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
                             type = "number"
-                            maxlength = "4" name="promotion" placeholder="Promotion YYYY" required>
+                            maxlength = "4" name="promotion" placeholder="Promotion YYYY" required v-model="promotion">
                         </div>
 
                         <div class="">
                             <div id="appe" class="input-group">
                                 <div id="select" class="select">
-                                    <select class="browser-default custom-select" id="categorie" name="foyer" required>
+                                    <select class="browser-default custom-select" id="categorie" name="foyer" required v-model="foyer">
                                         <option value="">Foyer</option>
                                         
                                         <option value="ami'ral">Ami'Ral</option>
@@ -52,7 +52,7 @@
                         <div class="">
                             <div id="appe" class="input-group">
                                 <div id="select" class="select">
-                                    <select class="browser-default custom-select" id="categorie" name="referant" required>
+                                    <select class="browser-default custom-select" id="categorie" name="referant" required v-model="referent">
                                         <option value="">Référant</option>
                                         
                                         <option value="Andry">Andry</option>
@@ -64,17 +64,17 @@
 
                         <div class="form-group">
                             <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                            <input type="password" name="pass" minlength=8 id="pass" placeholder="Password" required/>
+                            <input type="password" name="pass" minlength=8 id="pass" placeholder="Password" required v-model="s_password_inscr"/>
                         </div>
                         <div class="form-group">
                             <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                            <input type="password" name="re_pass" minlength=8 id="re_pass" placeholder="Repeat your password" required/>
+                            <input type="password" name="re_pass" minlength=8 id="re_pass" placeholder="Repeat your password" required v-model="s_repeatPassword"/>
                         </div>
                         <span class="form-group" id="notif">
 
                         </span>
                         <div class="form-group form-button">
-                            <input type="submit" name="signup" id="signup" class="form-submit" value="Enregistrer" required/>
+                            <input @click="inscription()" type="submit" name="signup" id="signup" class="form-submit" value="Enregistrer" required/>
                         </div>
 
                     </form>
@@ -90,7 +90,7 @@
         </div>
     </section>
 
-    <section v-else-if="suffix == 'referant'">
+    <section v-else-if = "suffix == 'referant'">
         <div class="container-fluid container px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
                 <div class="card card0 border-0">
                     <div class="row d-flex">
@@ -104,14 +104,14 @@
                                 <form method="POST" class="register-form" id="login-form" action="/login/re">
                                     <div class="form-group">
                                         <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                        <input type="email" name="email" id="r_email_log" placeholder="Email"/>
+                                        <input type="email" name="email" id="r_email_log" placeholder="Email" v-model="r_email_conx"/>
                                     </div>
                                     <span class="form-group" id="r_notif_email_log">
 
                                     </span>
                                     <div class="form-group">
                                         <label for="r_your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                        <input type="password" minlength=7 name="pass" id="r_your_pass" placeholder="Password" disabled/>
+                                        <input type="password" minlength=7 name="pass" id="r_your_pass" placeholder="Password" disabled v-model="r_password_conx"/>
                                     </div>
                                     <span class="form-group" id="r_notif_pass_log">
 
@@ -134,20 +134,20 @@
                                     <form method="POST" class="register-form" id="register-form" action="/r_register">
                                         <div class="form-group">
                                             <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                            <input type="text" name="name" id="name" placeholder="Nom" required />
+                                            <input type="text" name="name" id="name" placeholder="Nom" required v-model="r_nom"/>
                                         </div>
                                         <div class="form-group">
                                             <label for="fname"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                            <input type="text" name="fname" id="fname" placeholder="Prénom" required/>
+                                            <input type="text" name="fname" id="fname" placeholder="Prénom" required v-model="r_prenom"/>
                                         </div>
                                         <div class="form-group">
                                             <label for="aname"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                            <input type="text" name="aname" id="aname" placeholder="Appelation" required/>
+                                            <input type="text" name="aname" id="aname" placeholder="Appelation" required v-model="r_appelation"/>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                            <input type="email" name="email" id="r_email" placeholder="Email" required/>
+                                            <input type="email" name="email" id="r_email" placeholder="Email" required v-model="r_email_inscr"/>
                                         </div>
 
                                         <span class="form-group" id="r_notif_email">
@@ -156,16 +156,16 @@
 
                                         <div class="form-group">
                                             <label for="phone"><i class="zmdi zmdi-phone"></i></label>
-                                            <input type="text" name="phone" id="phone" placeholder="Téléphone" required/>
+                                            <input type="text" name="phone" id="phone" placeholder="Téléphone" required v-model="telephone"/>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                            <input type="password" name="pass" minlength=8 id="r_pass" placeholder="Password" required/>
+                                            <input type="password" name="pass" minlength=8 id="r_pass" placeholder="Password" required v-model="r_password_inscr"/>
                                         </div>
                                         <div class="form-group">
                                             <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                            <input type="password" name="re_pass" minlength=8 id="r_re_pass" placeholder="Repeat your password" required/>
+                                            <input type="password" name="re_pass" minlength=8 id="r_re_pass" placeholder="Repeat your password" required v-model="r_repeatPassword"/>
                                         </div>
                                         <span class="form-group" id="r_notif">
 
@@ -176,7 +176,6 @@
 
                                     </form>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -205,14 +204,14 @@
                     <form method="POST" class="register-form" id="login-form" action="/login/etu">
                         <div class="form-group">
                             <label for="email"><i class="zmdi zmdi-email"></i></label>
-                            <input type="email" name="email" id="email_log" placeholder="Email"/>
+                            <input type="email" name="email" id="email_log" placeholder="Email" v-model="s_email_conx"/>
                         </div>
                         <span class="form-group" id="notif_email_log">
 
                         </span>
                         <div class="form-group">
                             <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                            <input type="password" minlength=7 name="pass" id="your_pass" placeholder="Password" disabled/>
+                            <input type="password" minlength=7 name="pass" id="your_pass" placeholder="Password" disabled v-model="s_password_conx"/>
                         </div>
                         <span class="form-group" id="notif_pass_log">
 
@@ -226,6 +225,7 @@
             </div>
         </div>
     </section>
+   
 
         
 </template>
@@ -235,7 +235,27 @@ export default {
 
   data (){
     return {
-      suffix : 'signin'
+      suffix : 'signin',
+          s_email_conx : "",
+          s_password_conx : "",
+          s_nom : "",
+          s_prenom : "", 
+          s_appelation : "",
+          s_email_inscr : "", 
+          promotion : "",
+          foyer : "",
+          referent : "",
+          s_password_inscr : "",
+          s_repeatPassword : "",
+          r_email_conx : "",
+          r_password_conx : "",
+          r_nom : "",
+          r_prenom : "",
+          r_appelation : "",
+          r_email_inscr : "",
+          telephone : "",
+          r_password_inscr :"",
+          r_repeatPassword : ""
     }
   },
 
@@ -243,6 +263,25 @@ export default {
     changePage(p){
       this.suffix = p
       console.log(this.suffix)
+    }, 
+    inscription(){
+    axios.post('http://127.0.0.1:8000/api/v1/register', {
+      name : this.s_nom,
+      fname : this.s_prenom,
+      aname : this.s_appelation,
+      email : this.s_email_inscr,
+      promotion : this.promotion,
+      foyer : this.foyer,
+      referent : this.referent,
+      pass : this.s_password_inscr,
+      re_pass : this.s_repeatPassword
+    })
+    .then(function(){
+      alert("Success");
+    })
+    .catch(function(){
+      alert("Error");
+    });
     }
   }
 }
