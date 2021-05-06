@@ -1,4 +1,5 @@
 <template>
+
         <!-- Singup  Form -->
     <section v-if="suffix == 'signup' " class="signup">
         <div class="container">
@@ -228,7 +229,6 @@
 
         
 </template>
-
 <script>
 export default {
   name: 'Sign',
@@ -656,6 +656,7 @@ figure {
   -o-border-radius: 5px;
   -ms-border-radius: 5px;
   margin-top: 25px;
+  margin-bottom: 25px;
   cursor: pointer; }
   .form-submit:hover {
     background: #4292dc; }
