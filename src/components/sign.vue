@@ -6,7 +6,7 @@
             <div class="signup-content">
                 <div class="signup-form">
                     <h2 class="form-title">S'inscrire</h2>
-                    <form method="POST" class="register-form" id="register-form" action="/register">
+                    <form method="" class="register-form" id="register-form" action="">
                         <div class="form-group">
                             <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                             <input type="text" name="name" id="name" placeholder="Nom" required v-model="s_nom"/>
@@ -74,7 +74,7 @@
 
                         </span>
                         <div class="form-group form-button">
-                            <input @click="inscription()" type="submit" name="signup" id="signup" class="form-submit" value="Enregistrer" required/>
+                            <input @click="inscription()" type="button" name="signup" id="signup" class="form-submit" value="Enregistrer" required/>
                         </div>
 
                     </form>
@@ -131,7 +131,7 @@
 
                                 <div>
                                     <h2 class="form-title">S'inscrire</h2>
-                                    <form method="POST" class="register-form" id="register-form" action="/r_register">
+                                    <form method="" class="register-form" id="register-form" action="">
                                         <div class="form-group">
                                             <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                             <input type="text" name="name" id="name" placeholder="Nom" required v-model="r_nom"/>
@@ -265,7 +265,7 @@ export default {
       console.log(this.suffix)
     }, 
     inscription(){
-    axios.post('http://127.0.0.1:8000/api/v1/register', {
+    this.axios.post('http://127.0.0.1:8000/api/v1/register', {
       name : this.s_nom,
       fname : this.s_prenom,
       aname : this.s_appelation,
@@ -279,8 +279,9 @@ export default {
     .then(function(){
       alert("Success");
     })
-    .catch(function(){
+    .catch(function(err){
       alert("Error");
+      console.log(err);
     });
     }
   }
