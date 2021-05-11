@@ -14,7 +14,7 @@
             <div class="">
                 <ul class="navbar-nav" style="margin-top: 10px; margin-left: 200%;">
                     <li class="nav-item">
-                      <a class="nav-link" href="#">ACCEUIL</a>
+                      <a class="nav-link" href="#">ACCUEIL</a>
                     </li>
                     <!-- Dropdown -->
                   <li class="nav-item">

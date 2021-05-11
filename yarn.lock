@@ -7272,6 +7272,11 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   resolved "https://registry.npm.taobao.org/signal-exit/download/signal-exit-3.0.3.tgz?cache=0&sync_timestamp=1598869141924&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fsignal-exit%2Fdownload%2Fsignal-exit-3.0.3.tgz#a1410c2edd8f077b08b4e253c8eacfcaf057461c"
   integrity sha1-oUEMLt2PB3sItOJTyOrPyvBXRhw=
 
+simple-modal-vue@^1.0.12:
+  version "1.0.12"
+  resolved "https://registry.yarnpkg.com/simple-modal-vue/-/simple-modal-vue-1.0.12.tgz#3da4de87621863ac8e834a7b3fca94971422c667"
+  integrity sha512-OHYahlgzxbNBxWkhKCBW69WaEu9NMCI0YylAM8fwuswdAnF5KBTmzeNh8XH7IS83FfxYO8ix8p8ca7zT04KKAg==
+
 simple-swizzle@^0.2.2:
   version "0.2.2"
   resolved "https://registry.npm.taobao.org/simple-swizzle/download/simple-swizzle-0.2.2.tgz#a4da6b635ffcccca33f70d17cb92592de95e557a"

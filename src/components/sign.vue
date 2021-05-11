@@ -2,6 +2,7 @@
 
         <!-- Singup  Form -->
     <section v-if="suffix == 'signup' " class="signup">
+    <SimpleModal v-bind:msg = "message" v-if ="showModal" @close = "closeModal()"/>
         <div class="container">
             <div class="signup-content">
                 <div class="signup-form">
@@ -76,7 +77,7 @@
                         <div class="form-group form-button">
                             <input @click="inscription()" type="button" name="signup" id="signup" class="form-submit" value="Enregistrer" required/>
                         </div>
-
+                        
                     </form>
                 </div>
                 <div class="signup-image">
@@ -218,7 +219,7 @@
                         </span>
                         <input type="hidden" name="e" value="diant">
                         <div class="form-group form-button">
-                            <input type="submit" disabled name="signin" id="signin" class="form-submit" value="Valider"/>
+                            <input type="button" disabled name="signin" id="signin" class="form-submit" value="Valider"/>
                         </div>
                     </form>
                 </div>
@@ -230,12 +231,14 @@
         
 </template>
 <script>
+import SimpleModal from '@/components/SimpleModal.vue'
 export default {
   name: 'Sign',
+  components : { SimpleModal },
 
   data (){
     return {
-      suffix : 'signin',
+          suffix : 'signin',
           s_email_conx : "",
           s_password_conx : "",
           s_nom : "",
@@ -255,7 +258,9 @@ export default {
           r_email_inscr : "",
           telephone : "",
           r_password_inscr :"",
-          r_repeatPassword : ""
+          r_repeatPassword : "", 
+          message : "", 
+          showModal : false
     }
   },
 
@@ -264,6 +269,9 @@ export default {
       this.suffix = p
       console.log(this.suffix)
     }, 
+    closeModal() {
+       this.showModal = false;    
+    },
     inscription(){
     this.axios.post('http://127.0.0.1:8000/api/v1/register', {
       name : this.s_nom,
@@ -277,11 +285,13 @@ export default {
       re_pass : this.s_repeatPassword
     })
     .then(function(){
-      alert("Success");
+      this.showModal = true;
+      this.message = "Enregistré avec Succès;"
     })
     .catch(function(err){
-      alert("Error");
-      console.log(err);
+        this.showModal = true;
+        this.message = "Error";
+        console.log(err);
     });
     }
   }
