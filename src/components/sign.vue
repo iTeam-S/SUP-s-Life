@@ -1,302 +1,240 @@
 <template>
-
+    <div>
+        <simple-modal v-model="isShow">
+          <template slot="body">
+            <h3 :style="styleModal" >{{ titreModal }}</h3>
+            <p>{{message}}</p>
+          </template>
+        </simple-modal>
         <!-- Singup  Form -->
-    <section v-if="suffix == 'signup' " class="signup">
-    <SimpleModal v-bind:msg = "message" v-if ="showModal" @close = "closeModal()"/>
-        <div class="container">
-            <div class="signup-content">
-                <div class="signup-form">
-                    <h2 class="form-title">S'inscrire</h2>
-                    <form method="" class="register-form" id="register-form" action="">
-                        <div class="form-group">
-                            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="name" id="name" placeholder="Nom" required v-model="s_nom"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="fname"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="fname" id="fname" placeholder="Prénom" required v-model="s_prenom"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="aname"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="aname" id="aname" placeholder="Appelation" required v-model="s_appelation"/>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email"><i class="zmdi zmdi-email"></i></label>
-                            <input type="email" name="email" id="email" placeholder="Email" required v-model="s_email_inscr"/>
-                        </div>
-
-                        <span class="form-group" id="notif_email">
-
-                        </span>
-
-                        <div class="form-group">
-                            <label for="promotion"><i class="zmdi zmdi-calendar"></i></label>
-                            <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                            type = "number"
-                            maxlength = "4" name="promotion" placeholder="Promotion YYYY" required v-model="promotion">
-                        </div>
-
-                        <div class="">
-                            <div id="appe" class="input-group">
-                                <div id="select" class="select">
-                                    <select class="browser-default custom-select" id="categorie" name="foyer" required v-model="foyer">
-                                        <option value="">Foyer</option>
-                                        
-                                        <option value="ami'ral">Ami'Ral</option>
-                                        <option value="fsociety">Fsociety</option>
-                                    </select>
-                                </div>
+        <section v-if="suffix == 'signup' " class="signup">
+        
+            <div class="container" >
+                <div class="signup-content">
+                    <div class="signup-form">
+                        <h2 class="form-title">S'inscrire</h2>
+                        <form method="" class="register-form" id="register-form" action="">
+                            <div class="form-group">
+                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="name" id="name" placeholder="Nom" required v-model="s_nom"/>
                             </div>
-                        </div><br>
+                            <div class="form-group">
+                                <label for="fname"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="fname" id="fname" placeholder="Prénom" required v-model="s_prenom"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="aname"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="aname" id="aname" placeholder="Appelation" required v-model="s_appelation"/>
+                            </div>
 
-                        <div class="">
-                            <div id="appe" class="input-group">
-                                <div id="select" class="select">
-                                    <select class="browser-default custom-select" id="categorie" name="referant" required v-model="referent">
-                                        <option value="">Référant</option>
-                                        
-                                        <option value="Andry">Andry</option>
-                                        <option value="Eddy">Eddy</option>
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email" placeholder="Email" required v-model="s_email_inscr"/>
+                            </div>
+
+                            <span class="form-group" id="notif_email">
+
+                            </span>
+
+                            <div class="form-group">
+                                <label for="promotion"><i class="zmdi zmdi-calendar"></i></label>
+                                <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                type = "number"
+                                maxlength = "4" name="promotion" placeholder="Promotion YYYY" required v-model="promotion">
+                            </div>
+
+                            <div class="">
+                                <div id="appe" class="input-group">
+                                    <div id="select" class="select">
+                                        <select class="browser-default custom-select" name="foyer" required v-model="foyer">
+                                            <option value="">Foyer</option>
+                                            
+                                            <option value="ami'ral">Ami'Ral</option>
+                                            <option value="fsociety">Fsociety</option>
                                         </select>
                                     </div>
+                                </div>
+                            </div><br>
+
+                            <div class="">
+                                <div id="appe" class="input-group">
+                                    <div id="select" class="select">
+                                        <select class="browser-default custom-select" name="referant" required v-model="referent">
+                                            <option value="">Référant</option>
+                                            
+                                            <option value="Andry">Andry</option>
+                                            <option value="Eddy">Eddy</option>
+                                            </select>
+                                        </div>
+                                </div>
+                            </div><br>
+
+                            <div class="form-group">
+                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="pass" minlength=8 id="pass" placeholder="Password" required v-model="s_password_inscr"/>
                             </div>
-                        </div><br>
-
-                        <div class="form-group">
-                            <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                            <input type="password" name="pass" minlength=8 id="pass" placeholder="Password" required v-model="s_password_inscr"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                            <input type="password" name="re_pass" minlength=8 id="re_pass" placeholder="Repeat your password" required v-model="s_repeatPassword"/>
-                        </div>
-                        <span class="form-group" id="notif">
-
-                        </span>
-                        <div class="form-group form-button">
-                            <input @click="inscription()" type="button" name="signup" id="signup" class="form-submit" value="Enregistrer" required/>
-                        </div>
-                        
-                    </form>
-                </div>
-                <div class="signup-image">
-                    <figure><img src="../assets/images/signup-image.jpg" alt="sing up image"></figure>
-                    <button @click="changePage('referant')" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Référant s'inscrire / se connecter</button>
-                </div>
-                <div>
-
-                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section v-else-if = "suffix == 'referant'">
-        <div class="container-fluid container px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
-                <div class="card card0 border-0">
-                    <div class="row d-flex">
-                        <div class="col-lg-6">
-                            <div class="card1 pb-5">
-                                <!--<div class="row"> <img src="https://i.imgur.com/CXQmsmF.png" class="logo"> </div>-->
-                                <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
-                                    <img src="https://i.imgur.com/uNGdWHi.png" class="image">
-                                <div>
-                                <h2 class="form-title">Se connecter</h2>
-                                <form method="POST" class="register-form" id="login-form" action="/login/re">
-                                    <div class="form-group">
-                                        <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                        <input type="email" name="email" id="r_email_log" placeholder="Email" v-model="r_email_conx"/>
-                                    </div>
-                                    <span class="form-group" id="r_notif_email_log">
-
-                                    </span>
-                                    <div class="form-group">
-                                        <label for="r_your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                        <input type="password" minlength=7 name="pass" id="r_your_pass" placeholder="Password" disabled v-model="r_password_conx"/>
-                                    </div>
-                                    <span class="form-group" id="r_notif_pass_log">
-
-                                    </span>
-                                    <input type="hidden" name="e" value="ferant">
-                                    <div class="form-group form-button">
-                                        <input type="submit" disabled name="signin" id="r_signin" class="form-submit" value="Valider"/>
-                                    </div>
-                                </form>
+                            <div class="form-group">
+                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="re_pass" minlength=8 id="re_pass" placeholder="Repeat your password" required v-model="s_repeatPassword"/>
                             </div>
-                        </div>
+                            <span class="form-group" id="notif">
+
+                            </span>
+                            <div class="form-group form-button">
+                                <input @click="inscription()" type="button" name="signup" id="signup" class="form-submit" value="Enregistrer" required/>
+                            </div>
+                            
+                        </form>
                     </div>
+                    <div class="signup-image">
+                        <figure><img src="../assets/images/signup-image.jpg" alt="sing up image"></figure>
+                        <button @click="changePage('referant')" type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Référant s'inscrire / se connecter</button>
+                    </div>
+                    <div>
 
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="card2 card border-0 px-4 py-5">
+                     </div>
+                </div>
+            </div>
+        </section>
 
-                                <div>
-                                    <h2 class="form-title">S'inscrire</h2>
-                                    <form method="" class="register-form" id="register-form" action="">
-                                        <div class="form-group">
-                                            <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                            <input type="text" name="name" id="name" placeholder="Nom" required v-model="r_nom"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="fname"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                            <input type="text" name="fname" id="fname" placeholder="Prénom" required v-model="r_prenom"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="aname"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                            <input type="text" name="aname" id="aname" placeholder="Appelation" required v-model="r_appelation"/>
-                                        </div>
-
+        <section v-else-if = "suffix == 'referant'">
+            <div class="container-fluid container px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+                    <div class="card card0 border-0">
+                        <div class="row d-flex">
+                            <div class="col-lg-6">
+                                <div class="card1 pb-5">
+                                    <!--<div class="row"> <img src="https://i.imgur.com/CXQmsmF.png" class="logo"> </div>-->
+                                    <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
+                                        <img src="https://i.imgur.com/uNGdWHi.png" class="image">
+                                    <div>
+                                    <h2 class="form-title">Se connecter</h2>
+                                    <form method="POST" class="register-form" id="login-form" action="/login/re">
                                         <div class="form-group">
                                             <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                            <input type="email" name="email" id="r_email" placeholder="Email" required v-model="r_email_inscr"/>
+                                            <input type="email" name="email" id="r_email_log" placeholder="Email" v-model="r_email_conx"/>
                                         </div>
-
-                                        <span class="form-group" id="r_notif_email">
+                                        <span class="form-group" id="r_notif_email_log">
 
                                         </span>
-
                                         <div class="form-group">
-                                            <label for="phone"><i class="zmdi zmdi-phone"></i></label>
-                                            <input type="text" name="phone" id="phone" placeholder="Téléphone" required v-model="telephone"/>
+                                            <label for="r_your_pass"><i class="zmdi zmdi-lock"></i></label>
+                                            <input type="password" minlength=7 name="pass" id="r_your_pass" placeholder="Password" disabled v-model="r_password_conx"/>
                                         </div>
-
-                                        <div class="form-group">
-                                            <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                            <input type="password" name="pass" minlength=8 id="r_pass" placeholder="Password" required v-model="r_password_inscr"/>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                            <input type="password" name="re_pass" minlength=8 id="r_re_pass" placeholder="Repeat your password" required v-model="r_repeatPassword"/>
-                                        </div>
-                                        <span class="form-group" id="r_notif">
+                                        <span class="form-group" id="r_notif_pass_log">
 
                                         </span>
+                                        <input type="hidden" name="e" value="ferant">
                                         <div class="form-group form-button">
-                                            <input type="submit" name="signup" id="r_signup" class="form-submit" value="Enregistrer" required/>
+                                            <input type="submit" disabled name="signin" id="r_signin" class="form-submit" value="Valider"/>
                                         </div>
-
                                     </form>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!--
-                    <div class="bg-blue py-4">
-                        <div class="row px-3"> <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2019. All rights reserved.</small>
-                            <div class="social-contact ml-4 ml-sm-auto"> <span class="fa fa-facebook mr-4 text-sm"></span> <span class="fa fa-google-plus mr-4 text-sm"></span> <span class="fa fa-linkedin mr-4 text-sm"></span> <span class="fa fa-twitter mr-4 mr-sm-5 text-sm"></span> </div>
+
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="card2 card border-0 px-4 py-5">
+
+                                    <div>
+                                        <h2 class="form-title">S'inscrire</h2>
+                                        <form method="" class="register-form" id="register-form" action="">
+                                            <div class="form-group">
+                                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                                <input type="text" name="name" id="name" placeholder="Nom" required v-model="r_nom"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="fname"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                                <input type="text" name="fname" id="fname" placeholder="Prénom" required v-model="r_prenom"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="aname"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                                <input type="text" name="aname" id="aname" placeholder="Appelation" required v-model="r_appelation"/>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                                <input type="email" name="email" id="r_email" placeholder="Email" required v-model="r_email_inscr"/>
+                                            </div>
+
+                                            <span class="form-group" id="r_notif_email">
+
+                                            </span>
+
+                                            <div class="form-group">
+                                                <label for="phone"><i class="zmdi zmdi-phone"></i></label>
+                                                <input type="text" name="phone" id="phone" placeholder="Téléphone" required v-model="telephone"/>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                                                <input type="password" name="pass" minlength=8 id="r_pass" placeholder="Password" required v-model="r_password_inscr"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
+                                                <input type="password" name="re_pass" minlength=8 id="r_re_pass" placeholder="Repeat your password" required v-model="r_repeatPassword"/>
+                                            </div>
+                                            <span class="form-group" id="r_notif">
+
+                                            </span>
+                                            <div class="form-group form-button">
+                                                <input type="submit" name="signup" id="r_signup" class="form-submit" value="Enregistrer" required/>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <!--
+                        <div class="bg-blue py-4">
+                            <div class="row px-3"> <small class="ml-4 ml-sm-5 mb-2">Copyright &copy; 2019. All rights reserved.</small>
+                                <div class="social-contact ml-4 ml-sm-auto"> <span class="fa fa-facebook mr-4 text-sm"></span> <span class="fa fa-google-plus mr-4 text-sm"></span> <span class="fa fa-linkedin mr-4 text-sm"></span> <span class="fa fa-twitter mr-4 mr-sm-5 text-sm"></span> </div>
+                            </div>
+                        </div>
+                        -->
                     </div>
-                    -->
+                </div>
+        </section>
+
+        <!-- Sing in  Form -->
+        <section v-else class="sign-in">
+            <div class="container">
+                <div class="signin-content">
+                    <div class="signin-image">
+                        <figure><img src="../assets/images/signin-image.jpg" alt="sing up image"></figure>
+                        <a href="#" @click="changePage('signup')" class="signup-image-link">Créer un compte</a>
+                    </div>
+
+                    <div class="signin-form">
+                        <h2 class="form-title">Se connecter</h2>
+                        <form method="POST" class="register-form" id="login-form" action="/login/etu">
+                            <div class="form-group">
+                                <label for="email"><i class="zmdi zmdi-email"></i></label>
+                                <input type="email" name="email" id="email_log" placeholder="Email" v-model="s_email_conx"/>
+                            </div>
+                            <span class="form-group" id="notif_email_log">
+
+                            </span>
+                            <div class="form-group">
+                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" minlength=7 name="pass" id="your_pass" placeholder="Password" disabled v-model="s_password_conx"/>
+                            </div>
+                            <span class="form-group" id="notif_pass_log">
+
+                            </span>
+                            <input type="hidden" name="e" value="diant">
+                            <div class="form-group form-button">
+                                <input type="button" disabled name="signin" id="signin" class="form-submit" value="Valider"/>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-    </section>
-
-    <!-- Sing in  Form -->
-    <section v-else class="sign-in">
-        <div class="container">
-            <div class="signin-content">
-                <div class="signin-image">
-                    <figure><img src="../assets/images/signin-image.jpg" alt="sing up image"></figure>
-                    <a href="#" @click="changePage('signup')" class="signup-image-link">Créer un compte</a>
-                </div>
-
-                <div class="signin-form">
-                    <h2 class="form-title">Se connecter</h2>
-                    <form method="POST" class="register-form" id="login-form" action="/login/etu">
-                        <div class="form-group">
-                            <label for="email"><i class="zmdi zmdi-email"></i></label>
-                            <input type="email" name="email" id="email_log" placeholder="Email" v-model="s_email_conx"/>
-                        </div>
-                        <span class="form-group" id="notif_email_log">
-
-                        </span>
-                        <div class="form-group">
-                            <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                            <input type="password" minlength=7 name="pass" id="your_pass" placeholder="Password" disabled v-model="s_password_conx"/>
-                        </div>
-                        <span class="form-group" id="notif_pass_log">
-
-                        </span>
-                        <input type="hidden" name="e" value="diant">
-                        <div class="form-group form-button">
-                            <input type="button" disabled name="signin" id="signin" class="form-submit" value="Valider"/>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-   
-
+        </section>
+</div>
         
 </template>
-<script>
-import SimpleModal from '@/components/SimpleModal.vue'
-export default {
-  name: 'Sign',
-  components : { SimpleModal },
-
-  data (){
-    return {
-          suffix : 'signin',
-          s_email_conx : "",
-          s_password_conx : "",
-          s_nom : "",
-          s_prenom : "", 
-          s_appelation : "",
-          s_email_inscr : "", 
-          promotion : "",
-          foyer : "",
-          referent : "",
-          s_password_inscr : "",
-          s_repeatPassword : "",
-          r_email_conx : "",
-          r_password_conx : "",
-          r_nom : "",
-          r_prenom : "",
-          r_appelation : "",
-          r_email_inscr : "",
-          telephone : "",
-          r_password_inscr :"",
-          r_repeatPassword : "", 
-          message : "", 
-          showModal : false
-    }
-  },
-
-  methods: {
-    changePage(p){
-      this.suffix = p
-      console.log(this.suffix)
-    }, 
-    closeModal() {
-       this.showModal = false;    
-    },
-    inscription(){
-    this.axios.post('http://127.0.0.1:8000/api/v1/register', {
-      name : this.s_nom,
-      fname : this.s_prenom,
-      aname : this.s_appelation,
-      email : this.s_email_inscr,
-      promotion : this.promotion,
-      foyer : this.foyer,
-      referent : this.referent,
-      pass : this.s_password_inscr,
-      re_pass : this.s_repeatPassword
-    })
-    .then(function(){
-      this.showModal = true;
-      this.message = "Enregistré avec Succès;"
-    })
-    .catch(function(err){
-        this.showModal = true;
-        this.message = "Error";
-        console.log(err);
-    });
-    }
-  }
-}
-</script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
@@ -639,6 +577,7 @@ body {
 
 .signup-form, .signup-image, .signin-form, .signin-image {
   width: 50%;
+  height: 50%;
   overflow: hidden; }
 
   .signup-image {
@@ -974,3 +913,83 @@ label.valid {
 /*# sourceMappingURL=style.css.map */
 
 </style>
+
+
+<script>
+// import SimpleModal from '@/components/SimpleModal.vue'
+import SimpleModal from 'simple-modal-vue'
+export default {
+  name: 'Sign',
+  components : { SimpleModal },
+
+  data (){
+    return {
+          suffix : 'signin',
+          s_email_conx : "",
+          s_password_conx : "",
+          s_nom : "",
+          s_prenom : "", 
+          s_appelation : "",
+          s_email_inscr : "", 
+          promotion : "",
+          foyer : "",
+          referent : "",
+          s_password_inscr : "",
+          s_repeatPassword : "",
+          r_email_conx : "",
+          r_password_conx : "",
+          r_nom : "",
+          r_prenom : "",
+          r_appelation : "",
+          r_email_inscr : "",
+          telephone : "",
+          r_password_inscr :"",
+          r_repeatPassword : "", 
+          message : "", 
+          isShow : false,
+          statut_request : false,
+    }
+  },
+
+  computed: {
+    styleModal: function () {
+        if (!this.statut_request) return "color: red";
+        return "color: green";
+    },
+    titreModal: function (){
+        return this.statut_request ? "Succès" : "Erreur"
+    }
+  },
+
+  methods: {
+
+    changePage(p){ this.suffix = p}, 
+
+    inscription(){
+        this.axios.post('http://127.0.0.1:8000/api/v1/register', {
+          name : this.s_nom,
+          fname : this.s_prenom,
+          aname : this.s_appelation,
+          email : this.s_email_inscr,
+          promotion : this.promotion,
+          foyer : this.foyer,
+          referent : this.referent,
+          pass : this.s_password_inscr,
+          re_pass : this.s_repeatPassword
+        })
+        .then((res) => {
+            this.statut_request = true;
+            console.log(res.data)
+            this.isShow = true;
+            this.message = "Enregistré avec Succès;"
+        })
+        .catch((err) => {
+            this.statut_request = false;
+            this.isShow = true;
+            this.message = err.response.data;
+            console.log(err.response);
+        });
+    }
+  }
+}
+</script>

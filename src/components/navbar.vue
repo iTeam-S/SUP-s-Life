@@ -5,8 +5,8 @@
           <div class="col-md">
             <div class="mr-auto">
                 <a class="navbar-brand" href="#">
-                    <img src="../assets/images/cropped-logo-sesame-1.jpg" alt="logo" style="width:100px; margin: 10px;" >
-                    <img src="../assets/images/iteams.jpg" alt="logo" style="width:40px;" >
+                    <img src="../assets/images/sesame.png" alt="logo" style="max-width:60px; margin: 10px;" >
+                    <img src="../assets/images/iteams.png" alt="logo" style="max-width:60px;" >
                   </a>
             </div>
           </div>

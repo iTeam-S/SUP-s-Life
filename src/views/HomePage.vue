@@ -57,7 +57,7 @@
     import Navbar from '@/components/Home/Navbar.vue'
     import Slider from '@/components/Home/Slider.vue'
     export default {
-      name: 'Home',
+      name: 'HomePage',
       state: {
         message: 'Hello!'
       },

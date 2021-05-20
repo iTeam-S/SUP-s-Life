@@ -1,9 +1,9 @@
 <template>
-  <div class="modal-mask">*
+  <div class="modal-mask">
     <div class="modal-wrapper">
       <div class="modal-container">
-        <simple-modal  title="Modal Header" class="modal-header">
-            <template  id="succes"  slot="success" class="modal-body">
+        <simple-modal v-model="isShow" title="Information" class="modal-header">
+            <template slot="success" class="modal-body">
                  <h3>{{ msg }}</h3>
                  <button @click="$emit('close')">OK</button>
             </template>
@@ -18,10 +18,10 @@ import SimpleModal from 'simple-modal-vue'
 export default {
   name: 'SimpleModal',
   components : { SimpleModal },
-  props : { msg : String },
+  props : ["msg", "isShow"],
   data() {
     return { 
-      showModal : false
+//showModal : false
     }
   }
 }

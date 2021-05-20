@@ -15,9 +15,7 @@
             <button type="button" style="text:white; background-color: red;">SUBSCRIBE</button>
         </div>
       </div>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum nostrum debitis cupiditate dolorem atque quasi fuga, quibusdam nulla facere incidunt corrupti laborum aut. Repellendus animi reiciendis nihil mollitia error aperiam.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, expedita! Rem cupiditate, error cumque, incidunt neque odit doloribus temporibus sunt provident dolores, nisi sapiente totam animi adipisci! Nemo, iure minima.
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis assumenda accusantium aliquid officia, tenetur dolores enim maiores, eum reiciendis, consectetur quos expedita. Quibusdam sed beatae facilis inventore a laborum sapiente?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit.
 
    </div>
 </footer>
